@@ -5,7 +5,6 @@ read first_name
 echo "Enter your  surname:"
 read surname
 
-
 sudo yum update
 
 sudo yum -y install httpd
