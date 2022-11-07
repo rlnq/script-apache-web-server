@@ -1,0 +1,25 @@
+#!/bin/bash
+
+sudo yum update
+
+sudo yum -y install httpd
+sudo systemctl start httpd
+sudo systemctl enable httpd
+sudo systemctl status httpd | grep Active
+
+sudo yum install firewalld
+sudo systemctl start firewalld
+sudo systemctl status firewalld | grep Active
+
+sudo firewall-cmd --permanent --add-service=http
+sudo firewall-cmd --permanent --add-service=https
+
+sudo firewall-cmd --reload
+
+sudo chown -R $USER:$USER /var/www
+
+cd /var/www/html/
+echo '<!DOCTYPE html>' > index.html
+echo '<html>' >> index.html
+echo '<h1>Anton Orlenko</h1>' >> index.html
+echo '</html>' >> index.html
