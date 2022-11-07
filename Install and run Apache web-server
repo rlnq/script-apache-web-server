@@ -22,7 +22,6 @@ sudo firewall-cmd --permanent --add-service=https
 
 sudo firewall-cmd --reload
 
-
 sudo chown -R $USER:$USER /var/www
 
 cd /var/www/html/
